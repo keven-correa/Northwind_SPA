@@ -1,0 +1,68 @@
+﻿@model IEnumerable<NorthwindWeb.Models.Customer>
+
+
+@{
+    ViewData["Title"] = "Title";
+
+}
+
+<link rel="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" />
+<link rel="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap5.min.css" />
+<h2> Clientes </h2>
+
+<table id="example" class="table table-striped" style="width:100%">
+    <thead>
+        <tr>
+            <th>@*@Html.DisplayNameFor(model => model.CustomerId)*@ID</th>
+            <th>@*@Html.DisplayNameFor(model => model.CompanyName)*@CompanyName</th>
+            <th>@*@Html.DisplayNameFor(model => model.ContactName)*@ContactName</th>
+            <th>@*@Html.DisplayNameFor(model => model.ContactName)*@ContactName</th>
+            <th>@*@Html.DisplayNameFor(model => model.Phone)*@Phone</th>
+            <th>@*@Html.DisplayNameFor(model => model.Address)*@Address</th>
+            <th>@*@Html.DisplayNameFor(model => model.City)*@City</th>
+            <th>@*@Html.DisplayNameFor(model => model.Country)*@Country</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.CustomerId)</td>
+                <td>@Html.DisplayFor(modelItem => item.CompanyName)</td>
+                <td>@Html.DisplayFor(modelItem => item.ContactName)</td>
+                <td>@Html.DisplayFor(modelItem => item.ContactTitle)</td>
+                <td>@Html.DisplayFor(modelItem => item.Phone)</td>
+                <td>@Html.DisplayFor(modelItem => item.Address)</td>
+                <td>@Html.DisplayFor(modelItem => item.City)</td>
+                <td>@Html.DisplayFor(modelItem => item.Country)</td>
+            </tr>
+        }
+    </tbody>
+    @*<tfoot>
+            <tr>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Office</th>
+                <th>Age</th>
+                <th>Start date</th>
+                <th>Salary</th>
+            </tr>
+        </tfoot>*@
+</table>
+
+
+@section Scripts{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src=" https://code.jquery.com/jquery-3.5.1.js"></script>
+
+
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap5.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#example').DataTable();
+        });
+    </script>
+}

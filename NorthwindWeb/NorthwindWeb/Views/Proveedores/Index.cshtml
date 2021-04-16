@@ -1,0 +1,24 @@
+﻿@model IEnumerable< NorthwindWeb.Models.Supplier>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Suplidores</h1>
+
+<div class="row">
+    @foreach(var item in Model)
+            {
+                <div class="col-sm-4">
+                    <div class="mb-5">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">@item.CompanyName</h4>
+                                <p class="card-text">@item.Country</p>
+                                <a class="btn btn-outline-info"  asp-action="Detalles" asp-route-id="@item.SupplierId">Detalles</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+</div>
